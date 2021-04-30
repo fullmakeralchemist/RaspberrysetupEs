@@ -34,7 +34,7 @@ Como preferencia personal, me parece mejor comprar una memoria de alguna marca c
 
 **Nota: Se debe evitar desconectar la fuente de energía sin tener apagada la Raspberry esto puede dañar la memoria al momento y se perdería todo, ni formateando la memoria podría ser utilizada de nuevo**
 
-##2.Instalación del sistema operativo Raspberry Pi OS a través de Raspberry Pi Imager
+## 2.Instalación del sistema operativo Raspberry Pi OS a través de Raspberry Pi Imager
  
 El uso de Raspberry Pi Imager es la forma más sencilla de instalar el sistema operativo 
 Raspberry Pi en su tarjeta SD. **Nota: Raspberry Pi OS no es el único sistema operativo que 
@@ -91,7 +91,7 @@ Para conectar la tarjeta sd es muy fácil por la parte de abajo de nuestra Raspb
 Por último conectaremos la fuente de poder primero a nuestra Raspberry y después a un enchufe. **En caso de conectar primero al enchufe y luego a la Raspberry podríamos causar pequeños cortos que podrían afectar la vida útil de nuestra tarjeta**.
 
 
-##3.SSH Windows
+## 3.SSH Windows
  
 Puedes acceder a la línea de comando de una Raspberry Pi de forma remota desde otra computadora o dispositivo en la misma red usando SSH. La Raspberry Pi actuará como un dispositivo remoto: puede conectarse usando un cliente en otra máquina. Solo tiene acceso a la línea de comandos, no al entorno de escritorio completo. 
 Para un escritorio remoto completo, más adelante consulte VNC y su guía de instalación [How to Remote Desktop to your Raspberry 
@@ -106,3 +106,92 @@ Anteriormente mencionamos sobre la IP en caso de no contar con la funcion hotspo
 Necesitaremos instalar Putty, es un cliente SSH desarrollado  para Windows. PuTTY es un software de código abierto que está disponible con código fuente. Para descargar visita [Putty](https://www.putty.org/)
  
 Al instalar Putty nos aparecerá lo siguiente y tenemos que seleccionar lo que se muestra marcado en la imagen.
+
+Al iniciar nos aparecerá la siguiente ventana, en donde ingresamos la IP de nuestra Raspberry. Después daremos clic en open.
+ 
+Nos arrojará un mensaje de alerta en el que daremos clic en Sí.
+
+Después de dar clic en sí, aparecerá la ventana en donde se ingresará el usuario si no fue cambiada la contraseña y el usuario de fábrica viene como usuario pi y la contraseña que establecimos en los pasos anteriores como raspberry.
+
+Después de ingresar nuestro usuario nos pedirá la contraseña.
+
+Una vez ingresada la contraseña nos mostrará la ventana como muestra la figura y tendremos acceso total al Shell de nuestra Raspberry. Ahora vamos a configurarla para obtener acceso a el escritorio.
+
+## 4.VNC
+ 
+A veces no es conveniente trabajar directamente en la Raspberry Pi. Quizás te gustaría trabajar en él desde otro dispositivo por control remoto como tu laptop. VNC es un sistema gráfico de uso compartido de escritorio que le permite controlar de forma remota la interfaz de escritorio de una computadora (con VNC Server) desde otra computadora o dispositivo móvil (con VNC Viewer). VNC Viewer transmite el teclado y el mouse o los eventos táctiles al VNC Server y, a cambio, recibe actualizaciones en la pantalla. Verás el escritorio de la Raspberry Pi dentro de una ventana en tu computadora o dispositivo móvil. Podrás controlarlo como si estuvieras trabajando en la propia Raspberry Pi. En pocas palabras es muy similar a usar TeamViewer.
+Desde Putty ingresamos a la terminal de nuestra Raspberry. Una vez en nuestra terminal ingresamos el comando:
+ 
+ 
+ 
+```
+sudo raspi-config
+```
+
+
+
+Nos dirigiremos a la siguiente ventana y seleccionaremos la opción 3 "Interface Options".
+
+
+Ahora nos aparecerán las siguientes opciones, seleccionaremos VNC.
+
+
+Confirmaremos que queremos habilitar el servidor VNC.
+
+
+Volveremos al menú sudo raspi-config, ahora seleccionaremos "Display Options"
+
+
+Ahora seleccionaremos D1 Resolution. Para configurar una resolución que no tenga problemas con nuestro equipo.
+
+Seleccionaremos DMT Mode 85. La resolución 1280 x 720 es compatible con la mayoría de los equipos actuales, en caso de que no se vea muy bien en tu equipo intenta utilizar alguna de las demás opciones con menor resolución. 
+
+
+Al confirmar nos preguntará si queremos reiniciar, mi recomendación es la opción "YES". Después de reiniciar estará lista nuestra Raspberry para poder ingresar por primera vez a el Escritorio.
+
+
+Tenemos que instalar VNC en nuestro ordenador, para descargar visite [VNC Download](https://www.realvnc.com/es/connect/download/viewer/), una vez instalado puede abrir el programa, ingresamos en la parte superior la IP de nuestra Raspberry.
+
+
+Nos aparecerá la siguiente ventana donde ingresamos el nombre de usuario y contraseña de nuestra Raspberry Pi. Daremos en aceptar y nos mostrará el escritorio de Raspberry Pi.
+
+
+Una vez ingresado desde nuestro ordenador Windows podremos ver el escritorio de nuestra Raspberry Pi remotamente, daremos clic en ok en la ventana warning y procederemos a seguir los siguientes pasos:
+ 
+1.- Cuando inicie su Raspberry Pi por primera vez, aparecerá la aplicación Bienvenido a Raspberry Pi y lo guiará a través de la configuración inicial. Haga clic en Next para iniciar la configuración.
+
+
+Configure su país, idioma y zona horaria, luego haga clic en Next nuevamente.
+
+
+Nos dara la opcion de Ingresar una nueva contraseña para su Raspberry Pi, no es necesario cambiar la contraseña, de fábrica Raspberry tiene como usuario pi y contraseña raspberry, el cambio es solo por seguridad. y haga clic en Next.
+
+Nos dara la opcion de eliminar los bordes negros en una pantalla, como estamos utilizando un servidor remoto no podemos ver los bordes que normalente aparecerian si conectaramos nuestra Raspberry por HDMI asi que esta opcion la omitiremos y daremos click en Next.
+
+
+Nos permitirá conectarnos a otra red inalámbrica seleccionando su nombre, ingresando la contraseña (**Cambiar la red mientras estás en SSH o VNC hará que se cierre automáticamente la aplicación, las Raspberry tienen una IP dinamica que cambia cada con cara red nueva que se conecta, tendrás que ingresar la nueva IP de la red para volver a acceder remotamente**),continuaremos con la configuración haciendo clic en Next.
+
+
+Nos aparecera la opcion de actualizar lo mas recomendable es dar en Next y dejar que el asistente busque actualizaciones del sistema operativo Raspberry Pi y las instale (esto puede llevar un poco de tiempo).
+
+
+Sí la actualización se ejecutó de manera exitosa nos aparecerá la siguiente ventana , en caso de que fallara lo mejor es seguir las indicaciones y después, por Putty en SSH ingresar los comandos:
+ 
+1. sudo apt update
+2. sudo apt full-upgrade
+ 
+Si todo salió bien daremos click en Ok.
+
+
+Haremos clic en Restart para finalizar la configuración.
+ 
+**Nota: Solo necesitará reiniciar si es necesario para completar una actualización.**
+
+
+
+Con estos pasos completados nuestra Raspberry ya está lista para que la utilicemos para nuestros proyectos. Ahora podrás ingresar por cualquiera de los métodos anteriores a tu Raspberry y crear con esta herramienta.
+ 
+Sí quieres saber mas a cerca de como iniciar por primera vez en Raspberry visita su pagina oficial [Setting up Raspberry](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up)
+ 
+En caso de que te interese puedes revisar la guia de como instalar Visual Studio Code y Git en Raspberry Pi.
+
