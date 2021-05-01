@@ -4,7 +4,7 @@
 
 Aquí aprenderás sobre Raspberry Pi, qué cosas necesitas para usarla y cómo configurarla.
 
-Por lo general es necesario usar un teclado ⌨️, un ratón 🖱️ y un monitor 🖥️ para comenzar a utilizar Raspberry Pi para tus proyectos. En esta guía utilizaremos la versión más actual de software a abril 2021. Y solo necesitaremos una laptop 💻, una Raspberry Pi 4 y su fuente de alimentacion.
+Por lo general es necesario usar un teclado ⌨️, un ratón 🖱️ y un monitor 🖥️ para comenzar a utilizar Raspberry Pi para tus proyectos. En esta guía utilizaremos la versión más actual de software a abril 2021. Y solo necesitaremos una laptop 💻, una Raspberry Pi 4 y su fuente de alimentación.
 
 Hay varios modelos de Raspberry Pi. Raspberry Pi 4 Model B es el más nuevo, rápido y fácil de usar.
 
