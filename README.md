@@ -196,7 +196,7 @@ Una vez ingresado desde nuestro ordenador Windows podremos ver el escritorio de 
  
 1.- Cuando inicie su Raspberry Pi por primera vez, aparecerá la aplicación Bienvenido a Raspberry Pi y lo guiará a través de la configuración inicial. Haga clic en Next para iniciar la configuración.
 
-![inicioRaspMEDIUM](https://user-images.githubusercontent.com/79243784/116727044-abb0f400-a9a9-11eb-8f14-025c30ee7f29.png)
+![inicioRaspMEDIUM](https://user-images.githubusercontent.com/79243784/119272145-36ac9500-bbca-11eb-84b8-eda93db235c8.png)
 
 ![NEXTmediuminicio](https://user-images.githubusercontent.com/79243784/116727522-4dd0dc00-a9aa-11eb-8f97-e13f60915045.png)
 
